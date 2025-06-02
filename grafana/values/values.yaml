@@ -1,0 +1,27 @@
+# Grafana settings
+grafana:
+  enabled: true
+  adminPassword: "admin"  # Update this to a secure password
+
+# Prometheus integration
+prometheus:
+  enabled: true
+  prometheusSpec:
+    scrapeInterval: 30s
+    scrapeTimeout: 10s
+
+# Persistent storage for Grafana dashboards
+persistence:
+  enabled: true
+  storageClass: "nfs-client"  # Ensure your Kubernetes setup supports NFS
+  accessMode: ReadWriteOnce
+  size: 10Gi
+
+# Vault integration (for secret management)
+vault:
+  enabled: true
+  agent:
+    inject:
+      enabled: true
+      secrets:
+        - secret/authentik
