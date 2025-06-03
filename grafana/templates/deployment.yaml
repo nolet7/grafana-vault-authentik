@@ -18,14 +18,6 @@ spec:
         vault.hashicorp.com/role: "grafana-role"
         vault.hashicorp.com/agent-inject-secret-client-id: "secret/authentik"
         vault.hashicorp.com/agent-inject-secret-client-secret: "secret/authentik"
-        vault.hashicorp.com/agent-inject-template-client-id: |
-          {{- with secret "secret/authentik" -}}
-          {{ .Data.data.client-id }}
-          {{- end }}
-        vault.hashicorp.com/agent-inject-template-client-secret: |
-          {{- with secret "secret/authentik" -}}
-          {{ .Data.data.client-secret }}
-          {{- end }}
     spec:
       serviceAccountName: grafana  # Ensure this service account exists and is bound to Vault role
       containers:
