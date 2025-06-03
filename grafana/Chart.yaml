@@ -1,0 +1,6 @@
+# grafana/Chart.yaml
+apiVersion: v2
+name: grafana
+description: A Helm chart for Grafana with Authentik and Vault integration
+version: 0.1.0
+appVersion: "7.5.10"

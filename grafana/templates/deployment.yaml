@@ -27,7 +27,7 @@ spec:
           {{ .Data.data.client-secret }}
           {{- end }}
     spec:
-      serviceAccountName: grafana
+      serviceAccountName: grafana  # Ensure this service account exists and is bound to Vault role
       containers:
         - name: grafana
           image: grafana/grafana:latest
