@@ -1,7 +1,7 @@
 # Grafana settings
 grafana:
   enabled: true
-  adminPassword: "admin"  # Change this to a more secure password for production
+  adminPassword: "admin"  # Change this to a secure password for production
 
 # Prometheus integration
 prometheus:
@@ -26,6 +26,11 @@ vault:
       secrets:
         - secret/authentik
 
+  # Add client ID and client secret here, which will be injected from Vault
+  authentik:
+    clientId: "your-client-id-from-authentik"  # Replace this with your actual client ID from Authentik
+    clientSecret: "your-client-secret-from-authentik"  # Replace this with your actual client secret from Authentik
+
 # OIDC Authentication with Authentik (configured with the master node IP)
 grafana:
   env:
@@ -42,3 +47,4 @@ grafana:
     GF_AUTH_GENERIC_OAUTH_ROLE_ATTRIBUTE_PATH: "groups"
     GF_SERVER_ROOT_URL: "http://192.168.0.204"  # Using the master node IP
     GF_AUTH_SIGNOUT_REDIRECT_URL: "http://192.168.0.208:9000/if/session-end"
+
