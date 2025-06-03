@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: grafana-config
+data:
+  OAUTH_AUTH_URL: "http://192.168.0.208:9000/application/o/authorize/"
+  OAUTH_TOKEN_URL: "http://192.168.0.208:9000/application/o/token/"
+  OAUTH_API_URL: "http://192.168.0.208:9000/application/o/userinfo/"
+  OAUTH_LOGIN_ATTRIBUTE_PATH: "username"
+  OAUTH_NAME_ATTRIBUTE_PATH: "name"
+  OAUTH_ROLE_ATTRIBUTE_PATH: "groups"
+  SERVER_ROOT_URL: "http://192.168.0.204"  # Master node IP
+  OAUTH_SIGNOUT_REDIRECT_URL: "http://192.168.0.208:9000/if/session-end"
